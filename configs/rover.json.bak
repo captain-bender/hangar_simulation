@@ -1,0 +1,24 @@
+{
+  "rovers": [
+    {
+      "id": "at_frame_origin",
+      "location": [5.0, 5.0, 0],
+      "rotation": [0, 0, 0]
+    },
+    {
+      "id": "frame_y_limit",
+      "location": [5.0, 5.0, 0],
+      "rotation": [0, 0, 1.57079633]
+    },
+    {
+      "id": "frame_x_limit",
+      "location": [5.0, 5.0, 0],
+      "rotation": [0, 0, 3.14159265]
+    },
+    {
+      "id": "frame_diagonal",
+      "location": [5.0, 5.0, 0],
+      "rotation": [0, 0, 4.71238898]
+    }
+  ]
+}
