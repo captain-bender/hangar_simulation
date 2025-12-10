@@ -2,6 +2,149 @@ import bpy
 import json
 import math
 
+from dataclasses import dataclass
+
+@dataclass
+class CameraSpecs:
+    sensor_width_mm: float = 11.25
+    sensor_height_mm: float = 7.03
+    focal_length_mm: float = 18.0
+    clip_start: float = 0.1
+    clip_end: float = 1000.0
+
+@dataclass
+class PixelSpecs:
+    width_px: int = 1920
+    height_px: int = 1200
+    pixel_size_um: float = 5.86
+
+@dataclass
+class CyclesRenderSettings:
+    samples: int = 128
+    adaptive_threshold: float = 0.01
+    use_adaptive_sampling: bool = True
+    use_denoising: bool = True
+    denoiser: str = 'OPTIX'
+    max_bounces: int = 8
+    diffuse_bounces: int = 3
+    glossy_bounces: int = 4
+    transmission_bounces: int = 8
+    volume_bounces: int = 0
+    seed: int = 0
+    min_light_bounces: int = 0
+    min_transparent_bounces: int = 0
+
+@dataclass
+class OutputSettings:
+    resolution_x: int = 1920
+    resolution_y: int = 1200
+    pixel_aspect_x: float = 1.0
+    pixel_aspect_y: float = 1.0
+    file_format: str = 'PNG'
+    color_mode: str = 'RGB'
+    color_depth: int = 8
+    compression: int = 15
+    use_color_management: bool = True
+    view_transform: str = 'Standard'
+    exposure: float = 0.0
+
+class DefaultRenderConfiguration:
+    def __init__(self):
+        self.camera_specs = CameraSpecs()
+        self.pixel_specs = PixelSpecs()
+        self.render_settings = CyclesRenderSettings()
+        self.output_settings = OutputSettings()
+    
+    def apply_to_scene(self, scene=None, use_gpu=True):
+        if scene is None:
+            scene = bpy.context.scene
+        
+        scene.render.engine = 'CYCLES'
+        cycles = scene.cycles
+        cycles.samples = self.render_settings.samples
+        cycles.adaptive_threshold = self.render_settings.adaptive_threshold
+        cycles.use_adaptive_sampling = self.render_settings.use_adaptive_sampling
+        cycles.use_denoising = self.render_settings.use_denoising
+        cycles.denoiser = self.render_settings.denoiser
+        cycles.max_bounces = self.render_settings.max_bounces
+        cycles.diffuse_bounces = self.render_settings.diffuse_bounces
+        cycles.glossy_bounces = self.render_settings.glossy_bounces
+        cycles.transmission_bounces = self.render_settings.transmission_bounces
+        cycles.volume_bounces = self.render_settings.volume_bounces
+        cycles.seed = self.render_settings.seed
+        cycles.min_light_bounces = self.render_settings.min_light_bounces
+        cycles.min_transparent_bounces = self.render_settings.min_transparent_bounces
+        
+        render = scene.render
+        render.resolution_x = self.output_settings.resolution_x
+        render.resolution_y = self.output_settings.resolution_y
+        render.pixel_aspect_x = self.output_settings.pixel_aspect_x
+        render.pixel_aspect_y = self.output_settings.pixel_aspect_y
+        render.image_settings.file_format = self.output_settings.file_format
+        render.image_settings.color_mode = self.output_settings.color_mode
+        render.image_settings.color_depth = str(self.output_settings.color_depth)
+        
+        if self.output_settings.file_format == 'PNG':
+            render.image_settings.compression = self.output_settings.compression
+        
+        scene.display_settings.display_device = 'sRGB'
+        scene.view_settings.view_transform = self.output_settings.view_transform
+        scene.view_settings.exposure = self.output_settings.exposure
+        
+        if use_gpu:
+            self._enable_gpu_rendering(scene)
+        
+        return self
+    
+    def _enable_gpu_rendering(self, scene):
+        try:
+            prefs = bpy.context.preferences.addons['cycles'].preferences
+            if hasattr(prefs, 'compute_device_type'):
+                if 'OPTIX' in str(prefs.compute_device_type):
+                    prefs.compute_device_type = 'OPTIX'
+                else:
+                    prefs.compute_device_type = 'CUDA'
+                
+                for device in prefs.devices:
+                    device.use = True
+                
+                scene.cycles.device = 'GPU'
+                print("[DEBUG] GPU rendering enabled")
+        except Exception as e:
+            print(f"[WARNING] Could not enable GPU: {e}")
+    
+    def to_dict(self):
+        return {
+            'cycles': {
+                'samples': self.render_settings.samples,
+                'adaptive_threshold': self.render_settings.adaptive_threshold,
+                'denoiser': self.render_settings.denoiser,
+                'max_bounces': self.render_settings.max_bounces,
+            },
+            'output': {
+                'resolution': f"{self.output_settings.resolution_x}x{self.output_settings.resolution_y}",
+                'format': self.output_settings.file_format,
+            }
+        }
+
+class BalancedPreset(DefaultRenderConfiguration):
+    def __init__(self):
+        super().__init__()
+        self.render_settings.samples = 128
+        self.render_settings.adaptive_threshold = 0.01
+
+class HighQualityPreset(DefaultRenderConfiguration):
+    def __init__(self):
+        super().__init__()
+        self.render_settings.samples = 256
+        self.render_settings.adaptive_threshold = 0.005
+
+class FastPreset(DefaultRenderConfiguration):
+    def __init__(self):
+        super().__init__()
+        self.render_settings.samples = 64
+        self.render_settings.adaptive_threshold = 0.05
+
 # Camera specifications
 sensor_width_mm = 11.25
 sensor_height_mm = 7.03
@@ -18,7 +161,8 @@ rover_name = "rover"
 # Configuration file paths
 CAMERAS_JSON_PATH = "C:/Users/Bende/Documents/hangar_simulation/configs/camera.json"
 ROVERS_JSON_PATH = "C:/Users/Bende/Documents/hangar_simulation/configs/rover.json"
-OUTPUT_DIR = "C:/Users/Bende/Documents/hangar_simulation/renderings/"
+LIGHTING_JSON_PATH = "C:/Users/Bende/Documents/hangar_simulation/configs/lighting.json"
+OUTPUT_DIR = "C:/Users/Bende/Documents/hangar_simulation/renderings/test1"
 
 def debug_print(message):
     """Print with clear formatting"""
@@ -30,24 +174,24 @@ def verify_and_lock_objects():
         local = bpy.data.objects[LOCAL_ORIGIN_NAME]
         l_marker = bpy.data.objects[L_MARKER_NAME]
         
-        debug_print(f"✓ Local origin '{LOCAL_ORIGIN_NAME}' at: {local.location}")
-        debug_print(f"✓ L-marker '{L_MARKER_NAME}' at: {l_marker.location}")
-        debug_print(f"✓ These objects will NOT be moved during rendering")
+        debug_print(f"Local origin '{LOCAL_ORIGIN_NAME}' at: {local.location}")
+        debug_print(f"L-marker '{L_MARKER_NAME}' at: {l_marker.location}")
+        debug_print(f"These objects will NOT be moved during rendering")
         
         return local, l_marker
     except KeyError as e:
-        debug_print(f"✗ ERROR: Missing object: {e}")
+        debug_print(f"ERROR: Missing object: {e}")
         return None, None
 
 def verify_rover_exists():
     """Check if rover exists"""
     try:
         rover = bpy.data.objects[rover_name]
-        debug_print(f"✓ Rover '{rover_name}' found")
+        debug_print(f"Rover '{rover_name}' found")
         return rover
     except KeyError:
-        debug_print(f"✗ ERROR: Rover '{rover_name}' NOT FOUND")
-        debug_print(f"  Available objects: {[obj.name for obj in bpy.data.objects if obj.type not in ['CAMERA']]}")
+        debug_print(f"ERROR: Rover '{rover_name}' NOT FOUND")
+        debug_print(f"Available objects: {[obj.name for obj in bpy.data.objects if obj.type not in ['CAMERA']]}")
         return None
 
 def create_or_update_camera(name, location, rotation):
@@ -71,7 +215,7 @@ def create_or_update_camera(name, location, rotation):
     camera_obj.location = location
     camera_obj.rotation_euler = rotation
     
-    debug_print(f"✓ Camera '{name}' created at {camera_obj.location}")
+    debug_print(f"Camera '{name}' created at {camera_obj.location}")
     
     return camera_obj
 
@@ -81,7 +225,7 @@ def move_rover_in_frame(rover_obj, location_in_frame, rotation, local_origin_loc
     location_in_frame: (x, y, z) relative to frame top-left corner (local origin)
     """
     if rover_obj is None:
-        debug_print(f"✗ ERROR: Rover object is None!")
+        debug_print(f"ERROR: Rover object is None!")
         return False
     
     try:
@@ -99,7 +243,7 @@ def move_rover_in_frame(rover_obj, location_in_frame, rotation, local_origin_loc
         
         return True
     except Exception as e:
-        debug_print(f"✗ ERROR moving rover: {e}")
+        debug_print(f"ERROR moving rover: {e}")
         return False
 
 def set_render_settings(resolution_x, resolution_y, output_path):
@@ -117,13 +261,13 @@ def load_cameras_from_json(filepath):
     try:
         with open(filepath, 'r') as file:
             data = json.load(file)
-        debug_print(f"✓ Loaded {len(data['cameras'])} cameras from JSON")
+        debug_print(f"Loaded {len(data['cameras'])} cameras from JSON")
         return data['cameras']
     except FileNotFoundError:
-        debug_print(f"✗ ERROR: JSON file not found at {filepath}")
+        debug_print(f"ERROR: JSON file not found at {filepath}")
         return None
     except Exception as e:
-        debug_print(f"✗ ERROR loading JSON: {e}")
+        debug_print(f"ERROR loading JSON: {e}")
         return None
 
 def load_rovers_from_json(filepath):
@@ -131,14 +275,77 @@ def load_rovers_from_json(filepath):
     try:
         with open(filepath, 'r') as file:
             data = json.load(file)
-        debug_print(f"✓ Loaded {len(data['rovers'])} rover positions from JSON")
+        debug_print(f"Loaded {len(data['rovers'])} rover positions from JSON")
         return data['rovers']
     except FileNotFoundError:
-        debug_print(f"✗ ERROR: JSON file not found at {filepath}")
+        debug_print(f"ERROR: JSON file not found at {filepath}")
         return None
     except Exception as e:
-        debug_print(f"✗ ERROR loading JSON: {e}")
+        debug_print(f"ERROR loading JSON: {e}")
         return None
+
+def load_lighting_configs(filepath):
+    """
+    Load lighting configurations from JSON file
+    
+    Args:
+        filepath: Path to lighting configuration JSON
+        
+    Returns:
+        Dictionary mapping position_id -> lighting config
+    """
+    try:
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+        
+        # Create lookup dictionary using position_id
+        configs_dict = {
+            config['position_id']: config 
+            for config in data['lighting_configs']
+        }
+        
+        debug_print(f"Loaded {len(configs_dict)} lighting configurations")
+        return configs_dict
+    
+    except FileNotFoundError:
+        debug_print(f"WARNING: Lighting config file not found: {filepath}")
+        return None
+    except Exception as e:
+        debug_print(f"WARNING: Failed to load lighting configs: {e}")
+        return None
+
+def apply_lighting_config(config):
+    """
+    Apply lighting configuration to the scene
+    
+    Args:
+        config: Dictionary containing lighting configuration
+    """
+    if config is None:
+        return
+    
+    for light_config in config['lights']:
+        light_name = light_config['name']
+        
+        # Get the light object
+        if light_name not in bpy.data.objects:
+            debug_print(f"WARNING: Light '{light_name}' not found in scene, skipping")
+            continue
+        
+        light_obj = bpy.data.objects[light_name]
+        
+        # Apply location
+        light_obj.location = light_config['location']
+        
+        # Rotation is in degrees in JSON, convert to radians
+        rotation_rad = [math.radians(deg) for deg in light_config['rotation']]
+        light_obj.rotation_euler = rotation_rad
+        
+        # Apply power to the light data
+        if light_obj.data and hasattr(light_obj.data, 'energy'):
+            light_obj.data.energy = light_config['power']
+        else:
+            debug_print(f"WARNING: Could not set power for {light_name}")
 
 # Main execution
 if __name__ == "__main__":
@@ -155,7 +362,7 @@ if __name__ == "__main__":
     rover_obj = verify_rover_exists()
     
     if local_obj is None or rover_obj is None:
-        print("\n✗ STOP: Required objects missing")
+        print("\nSTOP: Required objects missing")
         print("="*70 + "\n")
         exit()
     
@@ -168,18 +375,34 @@ if __name__ == "__main__":
     
     cameras = load_cameras_from_json(CAMERAS_JSON_PATH)
     rover_positions = load_rovers_from_json(ROVERS_JSON_PATH)
+    lighting_configs = load_lighting_configs(LIGHTING_JSON_PATH)
     
     if cameras is None or rover_positions is None:
-        print("\n✗ STOP: Could not load configuration from JSON")
+        print("\nSTOP: Could not load configuration from JSON")
         print("="*70 + "\n")
         exit()
+    
+    if lighting_configs is None:
+        print("\nWARNING: No lighting configurations loaded")
+        print("Continuing with scene default lighting")
+        print("-"*70)
     
     # Step 3: Configure render engine
     print("\nSTEP 3: Configuring render settings...")
     print("-"*70)
     
-    bpy.context.scene.render.engine = 'BLENDER_EEVEE_NEXT'
-    debug_print(f"✓ Render engine set to BLENDER_EEVEE_NEXT")
+    # Create and apply rendering configuration
+    # Choose one: BalancedPreset(), HighQualityPreset(), or FastPreset()
+    config = FastPreset()
+    config.apply_to_scene(bpy.context.scene, use_gpu=True)
+    
+    debug_print(f"Render engine: CYCLES")
+    debug_print(f"Samples: {config.render_settings.samples}")
+    debug_print(f"Denoiser: {config.render_settings.denoiser}")
+    debug_print(f"Max bounces: {config.render_settings.max_bounces}")
+    
+#    bpy.context.scene.render.engine = 'BLENDER_EEVEE_NEXT'
+#    debug_print(f"✓ Render engine set to BLENDER_EEVEE_NEXT")
     
     # Step 4: Main render loop
     print("\nSTEP 4: Starting render loop...")
@@ -206,9 +429,18 @@ if __name__ == "__main__":
             print(f"\n--- Render {render_count + 1}: Camera {cam_id} + Rover {rover_id} ---")
             debug_print(f"Rover frame coords: {rover_location_in_frame}")
             
+            # Apply lighting configuration for this rover position
+            if lighting_configs:
+                light_config = lighting_configs.get(rover_id)
+                if light_config:
+                    apply_lighting_config(light_config)
+                    debug_print(f"Applied lighting config for {rover_id}")
+                else:
+                    debug_print(f"No lighting config found for {rover_id}, using previous")
+            
             # Move rover relative to LOCAL frame origin
             if not move_rover_in_frame(rover_obj, rover_location_in_frame, rover_rotation, local_origin_position):
-                debug_print("✗ Skipping this render")
+                debug_print("Skipping this render")
                 continue
             
             # Configure render output
@@ -219,10 +451,10 @@ if __name__ == "__main__":
             debug_print(f"Rendering...")
             try:
                 bpy.ops.render.render(write_still=True)
-                debug_print(f"✓ Saved to {output_path}")
+                debug_print(f"Saved to {output_path}")
                 render_count += 1
             except Exception as e:
-                debug_print(f"✗ Render failed: {e}")
+                debug_print(f"Render failed: {e}")
     
     print("\n" + "="*70)
     print(f"RENDERING COMPLETE: {render_count} images rendered")
