@@ -1,0 +1,2479 @@
+{
+  "lighting_configs": [
+    {
+      "position_id": "position_401",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.283883609459801,
+            14.574779338797407
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 494.12
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            6.071519686230278,
+            13.919791078602843
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 434.35
+        }
+      ]
+    },
+    {
+      "position_id": "position_402",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.277800025354988,
+            14.117178073325935
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 285.36
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.332248694871609,
+            15.056956424845035
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 458.03
+        }
+      ]
+    },
+    {
+      "position_id": "position_403",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.06109962837687,
+            14.128014797171062
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 291.36
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.158329265293553,
+            15.965040380319802
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 440.65
+        }
+      ]
+    },
+    {
+      "position_id": "position_404",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.773125758324975,
+            15.343568104768835
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 549.97
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.369800146608444,
+            15.188003882986605
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 292.09
+        }
+      ]
+    },
+    {
+      "position_id": "position_405",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.814391721713688,
+            13.423333758253126
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 266.08
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.37615940653862,
+            17.23931635765976
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 290.96
+        }
+      ]
+    },
+    {
+      "position_id": "position_406",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.173698478664036,
+            16.123786682239945
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 401.63
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.622918021012227,
+            15.338798047758743
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 374.69
+        }
+      ]
+    },
+    {
+      "position_id": "position_407",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.532607056430049,
+            16.429226474181696
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 274.8
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.9725291827353395,
+            15.534434472819278
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 337.63
+        }
+      ]
+    },
+    {
+      "position_id": "position_408",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.797213872734492,
+            16.35507300771915
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 300.46
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.721261845380514,
+            13.836843981168093
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 479.78
+        }
+      ]
+    },
+    {
+      "position_id": "position_409",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.975130278639956,
+            16.678131231990267
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 284.26
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.450109277962614,
+            13.550442089080933
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 360.06
+        }
+      ]
+    },
+    {
+      "position_id": "position_410",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.687532747219645,
+            17.34410291150673
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 465.69
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.524707165425397,
+            16.38938197897469
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 280.72
+        }
+      ]
+    },
+    {
+      "position_id": "position_411",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            15.217126692789078,
+            15.183929371321655
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 339.31
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.391285851164385,
+            15.140279613533332
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 354.57
+        }
+      ]
+    },
+    {
+      "position_id": "position_412",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.980316498807737,
+            14.332784221466724
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 548.19
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            11.103238969768107,
+            14.78652336445596
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 493.21
+        }
+      ]
+    },
+    {
+      "position_id": "position_413",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            11.551706309271385,
+            14.048926470761037
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 463.23
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.290196561867734,
+            14.211770883007064
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 291.77
+        }
+      ]
+    },
+    {
+      "position_id": "position_414",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.732154789528309,
+            14.509340075160791
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 267.81
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.460536158546816,
+            16.200215047020755
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 411.63
+        }
+      ]
+    },
+    {
+      "position_id": "position_415",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.897430662780802,
+            16.81706737978503
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 336.8
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.0169931592331,
+            13.764900655257371
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 545.65
+        }
+      ]
+    },
+    {
+      "position_id": "position_416",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            13.080910482912973,
+            17.0600748473193
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 538.83
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.894475904337785,
+            13.891552674455241
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 547.75
+        }
+      ]
+    },
+    {
+      "position_id": "position_417",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.720772419381398,
+            16.230579395356678
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 509.82
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.83873587479857,
+            16.088938214799786
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 498.54
+        }
+      ]
+    },
+    {
+      "position_id": "position_418",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.998255293041614,
+            14.459868608349943
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 396.84
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.743917225503644,
+            15.918511053401192
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 374.27
+        }
+      ]
+    },
+    {
+      "position_id": "position_419",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            6.154947840426174,
+            15.447453888350797
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 514.04
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            14.587361140885752,
+            14.860284696301688
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 333.47
+        }
+      ]
+    },
+    {
+      "position_id": "position_420",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.496892801609302,
+            13.394892340567939
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 535.08
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.55124026539487,
+            16.307727749948214
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 482.24
+        }
+      ]
+    },
+    {
+      "position_id": "position_421",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            11.865438208318427,
+            14.817890917363949
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 387.53
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.568244643875648,
+            14.255319740060823
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 269.0
+        }
+      ]
+    },
+    {
+      "position_id": "position_422",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.342514664077383,
+            14.45914735325769
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 378.89
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.601551551707875,
+            15.695734561043807
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 498.5
+        }
+      ]
+    },
+    {
+      "position_id": "position_423",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.07737904008505,
+            14.759958482210477
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 419.84
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            5.7080926115172295,
+            13.782298967664824
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 454.77
+        }
+      ]
+    },
+    {
+      "position_id": "position_424",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.81981762673567,
+            13.881948716921594
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 485.17
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.636859488764266,
+            13.386703726048417
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 507.3
+        }
+      ]
+    },
+    {
+      "position_id": "position_425",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.247182063973997,
+            16.13936752764604
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 537.41
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            11.723971993406527,
+            14.019909851623279
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 289.57
+        }
+      ]
+    },
+    {
+      "position_id": "position_426",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.964194580952822,
+            16.003351857675177
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 529.82
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.942437676467659,
+            16.999201075342633
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 325.12
+        }
+      ]
+    },
+    {
+      "position_id": "position_427",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.187415669322332,
+            14.607036979376922
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 299.66
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.565438414844195,
+            16.00594091353414
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 459.83
+        }
+      ]
+    },
+    {
+      "position_id": "position_428",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.234863036917237,
+            15.292226833043657
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 461.11
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.48590861459406,
+            16.10393090048632
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 289.81
+        }
+      ]
+    },
+    {
+      "position_id": "position_429",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.179971072880488,
+            16.653436107653192
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 252.79
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.447139337750599,
+            13.912700604370244
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 546.45
+        }
+      ]
+    },
+    {
+      "position_id": "position_430",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.054699256757727,
+            16.308053527055883
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 271.25
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.357514774409061,
+            16.907955979921084
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 280.73
+        }
+      ]
+    },
+    {
+      "position_id": "position_431",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.958604836506241,
+            16.397631203964274
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 291.14
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            15.153401552463851,
+            13.955412267339575
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 289.94
+        }
+      ]
+    },
+    {
+      "position_id": "position_432",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.308747419530096,
+            15.985080852631228
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 409.15
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.448320263643224,
+            15.896320153363611
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 382.03
+        }
+      ]
+    },
+    {
+      "position_id": "position_433",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.34109894359678,
+            16.13126467950296
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 295.41
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            6.090880334659886,
+            13.785860449910555
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 507.99
+        }
+      ]
+    },
+    {
+      "position_id": "position_434",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            11.11973917761513,
+            14.921127637372482
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 475.73
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.369036681821694,
+            13.943320755236936
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 538.97
+        }
+      ]
+    },
+    {
+      "position_id": "position_435",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            6.066487159979867,
+            15.59858652713892
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 333.09
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            11.299930989155232,
+            16.499878610053038
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 430.0
+        }
+      ]
+    },
+    {
+      "position_id": "position_436",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            13.70292104439959,
+            16.018621480340574
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 457.14
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.401491277972376,
+            15.42209026445885
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 340.49
+        }
+      ]
+    },
+    {
+      "position_id": "position_437",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.179420512420666,
+            13.603276524061013
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 474.35
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            14.770715113471528,
+            15.363550879773069
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 519.37
+        }
+      ]
+    },
+    {
+      "position_id": "position_438",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.219825412726575,
+            15.760719072550891
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 283.82
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            15.000969478433356,
+            17.331530131372755
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 408.49
+        }
+      ]
+    },
+    {
+      "position_id": "position_439",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            6.543828807327021,
+            16.82825601574699
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 530.18
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.878124628480986,
+            16.115768196009704
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 420.51
+        }
+      ]
+    },
+    {
+      "position_id": "position_440",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            14.768529839408863,
+            16.466468196898454
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 478.82
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            5.899325692727672,
+            14.432741108648269
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 255.01
+        }
+      ]
+    },
+    {
+      "position_id": "position_441",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.828688595882057,
+            16.542159995972366
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 261.95
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            11.509706960605762,
+            15.3881958620283
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 401.98
+        }
+      ]
+    },
+    {
+      "position_id": "position_442",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.242106386235164,
+            13.714711247698583
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 374.63
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            11.38447055666748,
+            14.49387094293824
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 410.97
+        }
+      ]
+    },
+    {
+      "position_id": "position_443",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.337046982953314,
+            14.197789975831311
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 342.97
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.587901728894582,
+            14.9469260118734
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 492.42
+        }
+      ]
+    },
+    {
+      "position_id": "position_444",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            13.569264691847527,
+            16.10922273883684
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 440.29
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.210758816054913,
+            16.303833509726168
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 269.83
+        }
+      ]
+    },
+    {
+      "position_id": "position_445",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.803059440231305,
+            13.729851193565956
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 503.94
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.757718422971427,
+            15.819329617709775
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 380.35
+        }
+      ]
+    },
+    {
+      "position_id": "position_446",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.640935090575542,
+            16.347632720936712
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 342.79
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.303006071180985,
+            16.189998444895465
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 285.83
+        }
+      ]
+    },
+    {
+      "position_id": "position_447",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            14.754162017546976,
+            15.477021450913632
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 299.15
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.431655180934591,
+            14.051851816769524
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 484.9
+        }
+      ]
+    },
+    {
+      "position_id": "position_448",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            13.035239799369876,
+            14.460057945636983
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 288.08
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.938302904896247,
+            13.501425004691214
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 515.92
+        }
+      ]
+    },
+    {
+      "position_id": "position_449",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.943805950213537,
+            13.640487956492592
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 492.13
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.99051674714184,
+            13.692280125145542
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 463.7
+        }
+      ]
+    },
+    {
+      "position_id": "position_450",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.825238955217532,
+            15.383440023045534
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 386.56
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.900877778568118,
+            14.404464324156313
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 420.07
+        }
+      ]
+    },
+    {
+      "position_id": "position_451",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.963123051920565,
+            16.276113493303466
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 280.87
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.312248849106467,
+            13.560151629051239
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 318.52
+        }
+      ]
+    },
+    {
+      "position_id": "position_452",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.669514503567035,
+            15.272058358310952
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 508.88
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            6.724846682411501,
+            17.108640308628743
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 364.89
+        }
+      ]
+    },
+    {
+      "position_id": "position_453",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.752647884958645,
+            17.040790678084516
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 507.25
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.417693043627985,
+            14.671208057888245
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 472.2
+        }
+      ]
+    },
+    {
+      "position_id": "position_454",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.426879214281971,
+            14.470031832039266
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 374.88
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.952081667378614,
+            15.392163770238332
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 273.37
+        }
+      ]
+    },
+    {
+      "position_id": "position_455",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.017443502723057,
+            16.602352077835025
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 520.58
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            14.764794074604277,
+            13.65970575109098
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 544.42
+        }
+      ]
+    },
+    {
+      "position_id": "position_456",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.047068706209025,
+            16.76438601704531
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 389.53
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            10.754913953240676,
+            13.415876694229823
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 348.19
+        }
+      ]
+    },
+    {
+      "position_id": "position_457",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.86206740824187,
+            14.600637229072332
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 310.2
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.863266905804993,
+            15.750763739939265
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 436.82
+        }
+      ]
+    },
+    {
+      "position_id": "position_458",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.950132629505244,
+            14.166689695491293
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 398.01
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.828822203216966,
+            14.364507497506331
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 520.13
+        }
+      ]
+    },
+    {
+      "position_id": "position_459",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.3243610956602,
+            14.316990967438972
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 251.91
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.61974006896174,
+            16.8927944570063
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 353.93
+        }
+      ]
+    },
+    {
+      "position_id": "position_460",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            5.238620405355777,
+            16.01421540070399
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 535.3
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.496150390409724,
+            13.799796077406238
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 504.7
+        }
+      ]
+    },
+    {
+      "position_id": "position_461",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.605675945208657,
+            15.35311550739959
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 408.94
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            15.193592701075485,
+            16.23060989880041
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 267.97
+        }
+      ]
+    },
+    {
+      "position_id": "position_462",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            14.436744029721064,
+            16.974149887725837
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 277.91
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.232469096986796,
+            14.873967896296323
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 405.93
+        }
+      ]
+    },
+    {
+      "position_id": "position_463",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            6.073024175164895,
+            13.767308021349542
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 542.37
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.42362891894216,
+            13.68332193731951
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 290.05
+        }
+      ]
+    },
+    {
+      "position_id": "position_464",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.573828784349853,
+            17.241873098930963
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 420.35
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.8339093892361005,
+            14.644035661639034
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 321.03
+        }
+      ]
+    },
+    {
+      "position_id": "position_465",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            12.231256063215422,
+            16.326411475129472
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 490.25
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            7.943558718324544,
+            13.68274974320992
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 345.42
+        }
+      ]
+    },
+    {
+      "position_id": "position_466",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            13.02336982468863,
+            15.723832143216516
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 310.81
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            6.867749806997682,
+            15.248220449746647
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 296.62
+        }
+      ]
+    },
+    {
+      "position_id": "position_467",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            10.583245490900236,
+            17.243538889000916
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 371.95
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.307077182125045,
+            14.444031707658834
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 312.29
+        }
+      ]
+    },
+    {
+      "position_id": "position_468",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            6.800153770655163,
+            16.129219371802062
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 285.97
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            12.192779832370764,
+            13.545319232434654
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 497.92
+        }
+      ]
+    },
+    {
+      "position_id": "position_469",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            8.501936588847919,
+            13.749851615165394
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 500.78
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.781427555042837,
+            15.437838701514918
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 324.47
+        }
+      ]
+    },
+    {
+      "position_id": "position_470",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.825667927212239,
+            17.34770648163163
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 453.16
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            9.267922264471746,
+            15.19280467760425
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 259.32
+        }
+      ]
+    },
+    {
+      "position_id": "position_471",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            7.722526282215511,
+            15.233172995504955
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 474.42
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            6.621930392731224,
+            13.431827692677652
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 491.17
+        }
+      ]
+    },
+    {
+      "position_id": "position_472",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            15.049672374836216,
+            13.907860950175913
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 499.11
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            8.946397438159977,
+            15.905190194415297
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 497.1
+        }
+      ]
+    },
+    {
+      "position_id": "position_473",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            11.047238014140632,
+            14.420282609386103
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 443.41
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            5.442001827386127,
+            13.64188814418764
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 493.82
+        }
+      ]
+    },
+    {
+      "position_id": "position_474",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.658313238359888,
+            13.900166195988017
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 520.75
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.51756177217418,
+            14.710199565009107
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 521.52
+        }
+      ]
+    },
+    {
+      "position_id": "position_475",
+      "lights": [
+        {
+          "name": "Right Side Big",
+          "location": [
+            -38.375,
+            9.833949220019408,
+            14.056956834916225
+          ],
+          "rotation": [
+            -75,
+            0,
+            90
+          ],
+          "power": 262.81
+        },
+        {
+          "name": "Left Side Big",
+          "location": [
+            38.374,
+            13.440854015322838,
+            14.963994752887679
+          ],
+          "rotation": [
+            75,
+            0,
+            90
+          ],
+          "power": 422.17
+        }
+      ]
+    }
+  ]
+}
