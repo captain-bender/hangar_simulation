@@ -1,0 +1,88 @@
+import bpy
+from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
+
+def view_frame_corners_sorted(cam_obj):
+    # Returns (bl, br, tl, tr) in CAMERA LOCAL coords
+    frame = cam_obj.data.view_frame(scene=bpy.context.scene)
+    pts = list(frame)
+
+    # Sort by y then x to separate bottom vs top
+    # Bottom two have smaller y, top two have larger y
+    pts_sorted_by_y = sorted(pts, key=lambda p: p.y)
+    bottom = pts_sorted_by_y[:2]
+    top    = pts_sorted_by_y[2:]
+
+    # Within bottom/top, sort by x to get left/right
+    bl, br = sorted(bottom, key=lambda p: p.x)
+    tl, tr = sorted(top,    key=lambda p: p.x)
+
+    return bl, br, tl, tr
+
+def pixel_to_world_on_zplane(cam_obj, u, v, plane_z):
+    scene = bpy.context.scene
+    W = scene.render.resolution_x
+    H = scene.render.resolution_y
+
+    # Pixel -> normalized [0..1], origin bottom-left
+    x = u / W
+    y = 1.0 - (v / H)
+
+    bl, br, tl, tr = view_frame_corners_sorted(cam_obj)
+
+    # Interpolate point on the camera frame
+    p_bottom = bl.lerp(br, x)
+    p_top    = tl.lerp(tr, x)
+    p_cam    = p_bottom.lerp(p_top, y)
+
+    ray_origin = cam_obj.matrix_world.translation
+    ray_target = cam_obj.matrix_world @ p_cam
+    ray_dir = (ray_target - ray_origin).normalized()
+
+    if abs(ray_dir.z) < 1e-9:
+        raise RuntimeError("Ray parallel to plane")
+
+    t = (plane_z - ray_origin.z) / ray_dir.z
+    if t < 0:
+        raise RuntimeError("Intersection behind camera")
+
+    return ray_origin + t * ray_dir
+
+# -------------------------------
+# ROUND TRIP CHECK
+# -------------------------------
+scene = bpy.context.scene
+cam   = bpy.data.objects["Camera_1603"]
+local = bpy.data.objects["local"]
+
+u, v = 1405, 264
+Z_floor = local.location.z
+Z_top   = Z_floor + 0.14
+
+p_top_world = pixel_to_world_on_zplane(cam, u, v, Z_top)
+
+co = world_to_camera_view(scene, cam, p_top_world)
+W, H = scene.render.resolution_x, scene.render.resolution_y
+u2 = co.x * W
+v2 = (1.0 - co.y) * H
+
+print("=== ROUND TRIP CHECK ===")
+print("Original pixel   :", (u, v))
+print("Reprojected pixel:", (u2, v2))
+print("NDC              :", co)
+print("Top world point  :", p_top_world)
+
+# -------------------------------
+# LOCALISATION RESULT
+# -------------------------------
+p_floor_world = Vector((p_top_world.x, p_top_world.y, Z_floor))
+p_local_bl = local.matrix_world.inverted() @ p_floor_world
+
+# Axis swap to dataset convention (as validated earlier)
+x_est_dataset = p_local_bl.y
+y_est_dataset = p_local_bl.x
+
+print("\n=== LOCALISATION RESULT ===")
+print("Floor world        :", p_floor_world)
+print("Local (Blender)    :", p_local_bl)
+print("Estimated (dataset): x =", x_est_dataset, " y =", y_est_dataset)
