@@ -1,0 +1,168 @@
+import bpy
+import json
+from mathutils import Vector
+
+# -----------------------
+# USER SETTINGS
+# -----------------------
+CAMERA_NAME = "Camera_1603"
+LOCAL_FRAME_NAME = "local"
+
+INPUT_JSON = "C:/Users/Bende/Documents/hangar_simulation/evaluation/centers_by_image.json"   # <-- change if needed
+OUTPUT_JSON = "C:/Users/Bende/Documents/hangar_simulation/evaluation/centers_by_image_with_meters.json"
+
+# Choose one: "pred_centers" or "gt_centers"
+CENTERS_KEY = "gt_centers"
+
+# Where to store results in each item
+OUTPUT_FIELD = "yolo_obb_centers"
+
+# Your rover/chassis-center height above the floor (meters)
+# (this matches your earlier logic: Z_top = Z_floor + 0.14)
+Z_TOP_WORLD = 0.384
+
+# -----------------------
+# CORE GEOMETRY
+# -----------------------
+def view_frame_corners_sorted(cam_obj):
+    """
+    Returns (bl, br, tl, tr) in CAMERA LOCAL coords from cam_obj.data.view_frame().
+    """
+    frame = cam_obj.data.view_frame(scene=bpy.context.scene)
+    pts = list(frame)
+
+    # Bottom two have smaller y, top two have larger y
+    pts_sorted_by_y = sorted(pts, key=lambda p: p.y)
+    bottom = pts_sorted_by_y[:2]
+    top    = pts_sorted_by_y[2:]
+
+    # Within bottom/top, sort by x to get left/right
+    bottom = sorted(bottom, key=lambda p: p.x)
+    top    = sorted(top, key=lambda p: p.x)
+
+    bl, br = bottom[0], bottom[1]
+    tl, tr = top[0], top[1]
+    return bl, br, tl, tr
+
+
+def pixel_to_world_on_zplane(cam_obj, u, v, plane_z):
+    """
+    Shoots a ray from the camera through pixel (u,v) and intersects it with Z=plane_z
+    in WORLD coordinates.
+    Assumes (u,v) are in image pixels with origin at TOP-LEFT.
+    """
+    scene = bpy.context.scene
+    W = scene.render.resolution_x
+    H = scene.render.resolution_y
+
+    # Pixel -> normalized [0..1], origin bottom-left
+    x = u / W
+    y = 1.0 - (v / H)
+
+    bl, br, tl, tr = view_frame_corners_sorted(cam_obj)
+
+    # Interpolate point on the camera frame
+    p_bottom = bl.lerp(br, x)
+    p_top    = tl.lerp(tr, x)
+    p_cam    = p_bottom.lerp(p_top, y)
+
+    ray_origin = cam_obj.matrix_world.translation
+    ray_target = cam_obj.matrix_world @ p_cam
+    ray_dir = (ray_target - ray_origin).normalized()
+
+    if abs(ray_dir.z) < 1e-12:
+        raise RuntimeError("Ray parallel to plane (ray_dir.z ~ 0).")
+
+    t = (plane_z - ray_origin.z) / ray_dir.z
+    if t < 0:
+        raise RuntimeError("Intersection behind camera (t < 0).")
+
+    return ray_origin + t * ray_dir
+
+
+# -----------------------
+# BATCH CONVERSION
+# -----------------------
+def main():
+    # Resolve objects
+    if CAMERA_NAME not in bpy.data.objects:
+        raise RuntimeError(f'Camera object "{CAMERA_NAME}" not found in bpy.data.objects')
+
+    if LOCAL_FRAME_NAME not in bpy.data.objects:
+        raise RuntimeError(f'Local frame object "{LOCAL_FRAME_NAME}" not found in bpy.data.objects')
+
+    cam = bpy.data.objects[CAMERA_NAME]
+    local = bpy.data.objects[LOCAL_FRAME_NAME]
+
+    Z_floor = float(local.location.z)
+    Z_top = float(Z_TOP_WORLD)
+
+    # Load JSON
+    with open(INPUT_JSON, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    if not isinstance(data, list):
+        raise RuntimeError("Expected the input JSON to be a LIST of image entries.")
+
+    # Process each image entry
+    out = []
+    for item in data:
+        # Copy original item as-is
+        new_item = dict(item)
+
+        centers = item.get(CENTERS_KEY, [])
+        converted = []
+
+        for c in centers:
+            u = float(c["x"])
+            v = float(c["y"])
+            cls = c.get("cls", None)
+            conf = c.get("conf", None)
+
+            try:
+                p_top_world = pixel_to_world_on_zplane(cam, u, v, Z_top)
+                p_floor_world = Vector((p_top_world.x, p_top_world.y, Z_floor))
+                p_local = local.matrix_world.inverted() @ p_floor_world
+
+                # Axis swap to dataset convention (your validated mapping)
+                x_est_dataset = float(p_local.y)
+                y_est_dataset = float(p_local.x)
+
+                payload = {
+                    "cls": cls,
+                    "pixel": {"u": u, "v": v},
+                    "world_point_top": {"x": float(p_top_world.x), "y": float(p_top_world.y), "z": float(p_top_world.z)},
+                    "world_point_floor": {"x": float(p_floor_world.x), "y": float(p_floor_world.y), "z": float(p_floor_world.z)},
+                    "local_point": {"x": float(p_local.x), "y": float(p_local.y), "z": float(p_local.z)},
+                    "dataset_xy_m": {"x": x_est_dataset, "y": y_est_dataset},
+                }
+                if conf is not None:
+                    payload["conf"] = float(conf)
+
+            except Exception as e:
+                payload = {
+                    "cls": cls,
+                    "pixel": {"u": u, "v": v},
+                    "error": str(e),
+                }
+                if conf is not None:
+                    payload["conf"] = float(conf)
+
+            converted.append(payload)
+
+        new_item[OUTPUT_FIELD] = converted
+        out.append(new_item)
+
+    # Save
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(out, f, indent=2)
+
+    print("=== DONE ===")
+    print("Input :", INPUT_JSON)
+    print("Mode  :", CENTERS_KEY)
+    print("Output:", OUTPUT_JSON)
+    print("Added field:", OUTPUT_FIELD)
+
+
+# Run
+main()
