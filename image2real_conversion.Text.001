@@ -55,9 +55,9 @@ scene = bpy.context.scene
 cam   = bpy.data.objects["Camera_1603"]
 local = bpy.data.objects["local"]
 
-u, v = 1405, 264
+u, v = 753, 94
 Z_floor = local.location.z
-Z_top   = Z_floor + 0.14
+Z_top   = 0.384
 
 p_top_world = pixel_to_world_on_zplane(cam, u, v, Z_top)
 
