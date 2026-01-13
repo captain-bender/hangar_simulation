@@ -12,14 +12,14 @@ INPUT_JSON = "C:/Users/Bende/Documents/hangar_simulation/evaluation/centers_by_i
 OUTPUT_JSON = "C:/Users/Bende/Documents/hangar_simulation/evaluation/centers_by_image_with_meters.json"
 
 # Choose one: "pred_centers" or "gt_centers"
-CENTERS_KEY = "gt_centers"
+CENTERS_KEY = "pred_centers"
 
 # Where to store results in each item
 OUTPUT_FIELD = "yolo_obb_centers"
 
 # Your rover/chassis-center height above the floor (meters)
 # (this matches your earlier logic: Z_top = Z_floor + 0.14)
-Z_TOP_WORLD = 0.384
+Z_OFFSET = 0.384
 
 # -----------------------
 # CORE GEOMETRY
@@ -95,7 +95,7 @@ def main():
     local = bpy.data.objects[LOCAL_FRAME_NAME]
 
     Z_floor = float(local.location.z)
-    Z_top = float(Z_TOP_WORLD)
+    Z_top = Z_OFFSET
 
     # Load JSON
     with open(INPUT_JSON, "r", encoding="utf-8") as f:
