@@ -6,7 +6,7 @@ import math
 # Configurable parameters
 # --------------------------
 
-NUM_SAMPLES = 625       # how many random rover poses to generate
+NUM_SAMPLES = 775       # how many random rover poses to generate
 # Front camera
 X_MIN, X_MAX = 0.0, 9.0
 Y_MIN, Y_MAX = 0.0, 14.2
