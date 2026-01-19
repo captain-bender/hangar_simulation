@@ -14,11 +14,21 @@ Do not forget to set the CENTERS_KEY variable to select the predictions or the a
 
 We need to check if there is any incosistency the the xy axis in the dataset. If we execute the following script:
 ```
-python .\eucledian_distance_centres.py --list-swapped --swapped-out evaluation/swapped_positions.json
+python .\eucledian_distance_centres.py --list-swapped --swapped-out evaluation/v4/swapped_positions.json
 ```
 we will get the list with positions that have the issues.
 
 The in order to compare the centres with the ground truth you need to run:
 ```
 python .\eucledian_distance_centres.py
+```
+
+Then for every category, pred and gt, generate a summary of statistics using the following script and updating the hardcoded paths accordingly.
+```
+python .\summarise_distance_errors.py
+```
+
+Finally, plot statistics related graphs using the following command:
+```
+python .\plot_error_statistics.py
 ```
