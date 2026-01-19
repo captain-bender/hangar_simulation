@@ -5,8 +5,8 @@ from pathlib import Path
 # -----------------------------
 # CONFIG
 # -----------------------------
-IN_JSON = Path("./evaluation/errors_in_centres_gt.json")
-OUT_JSON = Path("./evaluation/errors_in_centres_with_stats_gt.json")
+IN_JSON = Path("./evaluation/v5b/errors_in_centres_pred.json")
+OUT_JSON = Path("./evaluation/v5b/errors_in_centres_with_stats_pred.json")
 
 # thresholds in meters for "success rate"
 THRESHOLDS_M = [0.01, 0.02, 0.05, 0.10]  # 1cm, 2cm, 5cm, 10cm
