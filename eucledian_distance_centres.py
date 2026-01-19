@@ -2,9 +2,9 @@ import argparse
 import json, math, re, sys
 from pathlib import Path
 
-PRED_JSON = Path("./evaluation/centers_by_image_with_meters_pred.json")
+PRED_JSON = Path("./evaluation/v5b/centers_by_image_with_meters_gt.json")
 GT_JSON   = Path("./configs/rover.json")                             
-OUT_JSON  = Path("./evaluation/errors_in_centres_pred1.json")
+OUT_JSON  = Path("./evaluation/v5b/errors_in_centres_gt.json")
 OUT_SWAPPED = Path("./evaluation/swapped_positions.json")
 
 POS_ID_RE = re.compile(r"(position_\d+)", re.IGNORECASE)
