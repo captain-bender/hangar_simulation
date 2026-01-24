@@ -175,11 +175,11 @@ def make_performance_donut(errors_cm, label, outpath=None):
 
 def main():
     ap = argparse.ArgumentParser(description="Plot localisation error statistics from *_with_stats.json files.")
-    ap.add_argument("--yolo", type=str, default="./evaluation/v5b/errors_in_centres_with_stats_pred.json",
+    ap.add_argument("--yolo", type=str, default="./evaluation/v1-pose/errors_in_centres_with_stats_pred.json",
                     help="YOLO centres stats JSON (with per_image).")
-    ap.add_argument("--gt", type=str, default="./evaluation/v5b/errors_in_centres_with_stats_gt.json",
+    ap.add_argument("--gt", type=str, default="./evaluation/v1-pose/errors_in_centres_with_stats_gt.json",
                     help="GT/annotated centres stats JSON (with per_image).")
-    ap.add_argument("--outdir", type=str, default="./evaluation/v5b/plots",
+    ap.add_argument("--outdir", type=str, default="./evaluation/v1-pose/plots",
                     help="Output directory for figures.")
     ap.add_argument("--prefix", type=str, default="centres",
                     help="Filename prefix for output plots.")
