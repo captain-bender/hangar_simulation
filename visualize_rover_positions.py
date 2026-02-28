@@ -6,6 +6,7 @@ import sys
 
 # Parse command line arguments
 use_splits = '--splits' in sys.argv or '-s' in sys.argv
+exclude_not_included = '--exclude-not-included' in sys.argv or '-e' in sys.argv
 
 # Load the rover configuration
 with open('configs/rover.json', 'r') as f:
@@ -56,6 +57,16 @@ if use_splits:
         split_labels = np.array(split_labels)
         print(f"Loaded split information from CSV")
         print(f"Train: {np.sum(split_labels == 'train')}, Validation: {np.sum((split_labels == 'valid') | (split_labels == 'val') | (split_labels == 'validation'))}, Test: {np.sum(split_labels == 'test')}, Not included: {np.sum(split_labels == 'Not included')}")
+        
+        # Exclude "Not included" entries if requested
+        if exclude_not_included:
+            mask = split_labels != 'Not included'
+            x_positions = x_positions[mask]
+            y_positions = y_positions[mask]
+            yaw_angles = yaw_angles[mask]
+            rover_ids = np.array(rover_ids)[mask]
+            split_labels = split_labels[mask]
+            print(f"Excluding 'Not included' positions. Reduced to {len(x_positions)} positions")
     except Exception as e:
         print(f"Warning: Could not load CSV data: {e}")
         use_splits = False
@@ -91,14 +102,14 @@ ax.quiver(x_positions, y_positions, u, v,
 ax.set_aspect('equal')
 ax.set_xlabel('X Position (meters)')
 ax.set_ylabel('Y Position (meters)')
-ax.set_title(f'Rover Positions and Directions ({len(rovers)} points)')
+ax.set_title(f'Rover Positions and Directions ({len(x_positions)}/{len(rovers)} points)')
 ax.grid(True, alpha=0.3)
 ax.legend()
 
 # Add text showing count
-ax.text(0.02, 0.98, f'Total Rovers: {len(rovers)}', 
-        transform=ax.transAxes, verticalalignment='top',
-        bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+# ax.text(0.02, 0.98, f'Total Rovers: {len(rovers)}', 
+#         transform=ax.transAxes, verticalalignment='top',
+#         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
 plt.tight_layout()
 plt.savefig('rover_positions_visualization.png', dpi=150, bbox_inches='tight')
@@ -107,5 +118,6 @@ if use_splits:
     print("Visualization includes dataset split coloring (Train=Blue, Validation=Orange, Test=Green, Not included=Gray)")
 else:
     print("Tip: Run with --splits or -s flag to color by dataset split: python visualize_rover_positions.py --splits")
+    print("Or use --exclude-not-included or -e to hide positions not in the dataset (requires --splits)")
 print("Graph saved as 'rover_positions_visualization.png'")
 plt.show()
