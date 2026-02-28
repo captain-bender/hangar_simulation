@@ -1,0 +1,29 @@
+{
+  "preset": "BalancedPreset",
+  "render_settings": {
+    "samples": 128,
+    "adaptive_threshold": 0.01,
+    "denoiser": "OPTIX",
+    "max_bounces": 8
+  },
+  "timing_statistics": {
+    "total_renders": 10,
+    "total_time_seconds": 1285.212167263031,
+    "mean_time_seconds": 128.5212167263031,
+    "min_time_seconds": 115.95235300064087,
+    "max_time_seconds": 144.9481852054596,
+    "renders_per_hour": 28.010939296244818
+  },
+  "individual_render_times": [
+    116.89600157737732,
+    144.9481852054596,
+    128.06311178207397,
+    122.33596849441528,
+    141.29550433158875,
+    115.95235300064087,
+    134.06843733787537,
+    123.04354214668274,
+    137.07108759880066,
+    121.53797578811646
+  ]
+}
